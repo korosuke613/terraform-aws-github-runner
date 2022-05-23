@@ -26,10 +26,11 @@ resource "aws_apigatewayv2_stage" "webhook" {
     ]
   }
 
-  api_id      = aws_apigatewayv2_api.webhook.id
-  name        = "$default"
-  auto_deploy = true
-  tags        = var.tags
+  api_id              = aws_apigatewayv2_api.webhook.id
+  name                = "$default"
+  auto_deploy         = true
+  access_log_settings = var.webhook_lambda_apigateway_access_log_settings
+  tags                = var.tags
 }
 
 resource "aws_apigatewayv2_integration" "webhook" {

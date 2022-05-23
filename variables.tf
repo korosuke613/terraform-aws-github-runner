@@ -635,3 +635,11 @@ variable "disable_runner_autoupdate" {
   type        = bool
   default     = false
 }
+
+variable "webhook_lambda_apigateway_access_log_settings" {
+  type = object({
+    destination_arn = string
+    format          = string
+  })
+  default = null
+}
